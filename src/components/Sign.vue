@@ -3,12 +3,16 @@
     <h1>{{ msg }}</h1>
     <form>
         <div class="form-group">
-            <label>chave privada</label>
+            <label>Texto</label>
             <textarea class="form-control" v-model="privKey"></textarea>
         </div>
         <div class="form-group">
-            <label>chave publica</label>
-            <textarea row="30" class="form-control" v-model="pubKey"></textarea>
+            <label>chave privada</label>
+            <textarea row="30" class="form-control" v-model="privKey"></textarea>
+        </div>
+        <div class="form-group">
+            <label>assinatura</label>
+            <input class="form-control" v-model="assinatura">
         </div>
         <button v-on:click="gerar" type="submit" class="btn btn-default">Submit</button>
     </form>
@@ -17,22 +21,20 @@
 
 <script>
 export default {
-  name: 'key',
+  name: 'sign',
   data () {
     return {
       msg: 'App',
       privKey: '',
-      pubKey: ''
+      text: '',
+      assinatura: ''
     }
   },
   mounted () {
   },
   methods: {
     gerar: function (event) {
-      this.$http.get('http://172.17.0.3/gerar').then(response => {
-        this.privKey = response.body.privKey
-        this.pubKey = response.body.pubKey
-      })
+      this.$http.post('http://172.17.0.3/assinar', {privKey: 'teste'}, {emulateJSON: true})
     }
   }
 }
