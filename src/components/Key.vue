@@ -28,7 +28,7 @@ export default {
   methods: {
     gerar: function (event) {
       alert('teste')
-      this.$http.get('http://localhost:8000/gerar')
+      this.$http.get('http://172.17.0.3/gerar')
     }
   }
 }
