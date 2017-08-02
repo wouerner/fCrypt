@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Hello from '@/components/Hello'
 import Key from '@/components/Key'
 import Sign from '@/components/Sign'
+import Verify from '@/components/Verify'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/sign',
       name: 'Sign',
       component: Sign
+    },
+    {
+      path: '/verify',
+      name: 'Verify',
+      component: Verify
     }
   ]
 })
